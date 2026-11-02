@@ -55,7 +55,7 @@ const EXERCICIOS = {
     categoria: "Postura", nivel: 1,
     duracao: "3 séries de 15 seg",
     musculo: "Supra-hióideos (abaixo do queixo)",
-    video: "",
+    video: "assets/videos/lingua-no-ceu.mp4",
     icone: "👅", tempo: 45, // tempo = segundos no treino guiado
     objetivo: "Ativar os músculos abaixo do queixo e criar uma postura de língua que firma o perfil.",
     erros: "Pressionar só a ponta da língua; apertar os dentes com força.",
