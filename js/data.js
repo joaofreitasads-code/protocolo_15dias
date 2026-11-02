@@ -11,12 +11,12 @@ const CONFIG = {
   produto: "Xô Papada",
   subtitulo: "Protocolo de 15 dias",
   expert: {
-    nome: "Nome da Expert",
-    titulo: "Especialista em Estética Facial",
-    foto: "", // ex: "assets/expert.jpg"
+    nome: "Juliana Saraiva",
+    titulo: "Especialista em Saúde Facial",
+    foto: "assets/expert.jpg",
     boasVindas:
-      "Que alegria ter você aqui! Nos próximos 15 dias vamos trabalhar juntas a musculatura do rosto e do pescoço com exercícios simples, rápidos e feitos em casa. Siga a rotina todos os dias e marque cada exercício concluído.",
-    videoBoasVindas: "",
+      "Que alegria ter você aqui! Eu vou te acompanhar nos próximos 15 dias. Vamos trabalhar juntas a musculatura do rosto e do pescoço com exercícios simples, rápidos e feitos em casa. Reserve alguns minutos por dia, siga o treino guiado e marque cada exercício concluído. A constância é o que traz resultado.",
+    videoBoasVindas: "", // link do vídeo de boas-vindas (YouTube/Vimeo)
   },
   suporte: {
     whatsapp: "5500000000000", // só números, com DDI

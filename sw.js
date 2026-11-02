@@ -1,9 +1,9 @@
 /* Service worker: permite instalar como app e abrir mesmo sem internet.
    Ao publicar uma nova versão, mude o número abaixo para atualizar o cache. */
-const CACHE = "xopapada-v1";
+const CACHE = "xopapada-v2";
 const ARQUIVOS = [
   "./", "./index.html", "./css/style.css", "./js/data.js", "./js/app.js",
-  "./assets/logo.webp", "./assets/icons/icon-192.png", "./assets/icons/icon-512.png",
+  "./assets/logo.webp", "./assets/expert.jpg", "./assets/icons/icon-192.png", "./assets/icons/icon-512.png",
   "./manifest.webmanifest",
 ];
 

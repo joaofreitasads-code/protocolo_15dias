@@ -113,6 +113,10 @@ function videoEmbed(url) {
   return `<div class="video"><iframe src="${esc(src)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
 }
 
+const fotoExpert = (cls) => CONFIG.expert.foto
+  ? `<img class="${cls}" src="${esc(CONFIG.expert.foto)}" alt="${esc(CONFIG.expert.nome)}" />`
+  : `<div class="${cls} ${cls}--vazia">👩</div>`;
+
 const barra = (pct, light = false) =>
   `<div class="progress ${light ? "progress--light" : ""}"><div class="progress__bar" style="width:${pct}%"></div></div>`;
 
@@ -148,6 +152,10 @@ function telaOnboarding() {
   if (passoOnboard === 1) return `
   <div class="onboard card">
     <img src="assets/logo.webp" alt="Xô Papada" />
+    <div class="onboard__expert">
+      ${fotoExpert("onboard__foto")}
+      <div><strong>Com ${esc(CONFIG.expert.nome)}</strong><span>${esc(CONFIG.expert.titulo)}</span></div>
+    </div>
     <p class="eyebrow">Passo 1 de 2</p>
     <h1>Bem-vinda ao seu protocolo!</h1>
     <p class="muted" style="margin-top:8px">${esc(CONFIG.subtitulo)} para firmar e definir o contorno do rosto e do pescoço.</p>
@@ -214,13 +222,18 @@ function telaInicio() {
     </a>
   </section>
 
-  <section class="section card stack">
-    <div class="expert">
-      <div class="avatar">${CONFIG.expert.foto ? `<img src="${esc(CONFIG.expert.foto)}" alt="">` : "👩"}</div>
-      <div><h3>${esc(CONFIG.expert.nome)}</h3><p class="muted">${esc(CONFIG.expert.titulo)}</p></div>
+  <section class="section expert-card">
+    ${fotoExpert("expert-card__foto")}
+    <div class="expert-card__id">
+      <p class="eyebrow">Sua especialista</p>
+      <h2>${esc(CONFIG.expert.nome)}</h2>
+      <span class="chip">${esc(CONFIG.expert.titulo)}</span>
     </div>
-    <p>${esc(CONFIG.expert.boasVindas)}</p>
-    ${CONFIG.expert.videoBoasVindas ? videoEmbed(CONFIG.expert.videoBoasVindas) : ""}
+    <div class="expert-card__msg">
+      <p>“${esc(CONFIG.expert.boasVindas)}”</p>
+      <p class="expert-card__ass">${esc(CONFIG.expert.nome.split(" ")[0])} 💖</p>
+      ${CONFIG.expert.videoBoasVindas ? videoEmbed(CONFIG.expert.videoBoasVindas) : ""}
+    </div>
   </section>
 
   <section class="section">
