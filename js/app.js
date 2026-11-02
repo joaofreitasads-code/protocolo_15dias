@@ -103,8 +103,16 @@ function toast(msg) {
   toast._t = setTimeout(() => t.classList.remove("show"), 2500);
 }
 
+/* Vídeo próprio (arquivo .mp4/.webm dentro de assets/videos) */
+const ehArquivoVideo = (url) => /\.(mp4|webm|mov)(\?|$)/i.test(url || "");
+const posterDe = (url) => url.replace(/\.(mp4|webm|mov)(\?.*)?$/i, ".jpg");
+
 function videoEmbed(url) {
   if (!url) return `<div class="video"><div class="video__ph"><div>▶️</div><strong>Vídeo em breve</strong></div></div>`;
+  if (ehArquivoVideo(url)) return `
+    <div class="video video--arquivo">
+      <video src="${esc(url)}" poster="${esc(posterDe(url))}" autoplay muted loop playsinline controls preload="metadata"></video>
+    </div>`;
   let src = url;
   const yt = url.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
   if (yt) src = `https://www.youtube.com/embed/${yt[1]}?rel=0`;
@@ -564,7 +572,9 @@ function renderGuiado() {
       <div class="gd__steps">${lista.map((_, k) => `<span class="${k < i ? "ok" : k === i ? "on" : ""}"></span>`).join("")}</div>
       <div class="gd__card">
         <p class="gd__etapa">Exercício ${i + 1} de ${lista.length}</p>
-        <div class="gd__ic">${e.icone || "💪"}</div>
+        ${ehArquivoVideo(e.video)
+          ? `<video class="gd__video" src="${esc(e.video)}" poster="${esc(posterDe(e.video))}" autoplay muted loop playsinline></video>`
+          : `<div class="gd__ic">${e.icone || "💪"}</div>`}
         <h3>${esc(e.nome)}</h3>
         <p class="muted" style="font-size:14px">${esc(e.duracao)}</p>
         <div class="ring">

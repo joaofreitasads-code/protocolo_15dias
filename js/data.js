@@ -3,7 +3,8 @@
    ---------------------------------------------------------
    Este é o ÚNICO arquivo que você (ou sua expert) precisa
    editar para mudar textos, exercícios, vídeos e a rotina.
-   - video: cole o link do YouTube/Vimeo/Panda (embed) ou deixe ""
+   - video: link do YouTube/Vimeo OU arquivo próprio em assets/videos/nome.mp4
+     (para arquivo, coloque uma imagem de capa com o mesmo nome: nome.jpg)
    - Os textos atuais são PLACEHOLDERS para a expert revisar.
    ========================================================= */
 
@@ -253,7 +254,7 @@ const EXERCICIOS = {
     categoria: "Alongamento", nivel: 1,
     duracao: "3 de cada lado (segurar 10 seg)",
     musculo: "Laterais do pescoço",
-    video: "",
+    video: "assets/videos/inclinacao-lateral.mp4",
     icone: "🌿", tempo: 60, // tempo = segundos no treino guiado
     objetivo: "Soltar a tensão das laterais do pescoço e preparar para o treino.",
     erros: "Subir o ombro em direção à orelha; puxar a cabeça com a mão.",

@@ -406,3 +406,11 @@ a.card { display: block; }
 .onboard__foto--vazia { display: grid; place-items: center; background: var(--grad); font-size: 24px; }
 .onboard__expert strong { display: block; font-size: 14px; color: var(--crimson); }
 .onboard__expert span { display: block; font-size: 12px; color: var(--muted); }
+
+/* ---------- Vídeos próprios (vertical ou horizontal) ---------- */
+.video--arquivo { aspect-ratio: auto; background: #1d0a14; display: flex; justify-content: center; }
+.video--arquivo video { display: block; width: 100%; max-height: 58vh; object-fit: contain; background: #1d0a14; }
+.gd__video {
+  display: block; height: 260px; max-width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
+  margin: 10px auto 4px; border-radius: 18px; background: #1d0a14; box-shadow: 0 6px 20px rgba(136,14,79,.2);
+}
