@@ -37,7 +37,7 @@ const EXERCICIOS = {
     categoria: "Postura", nivel: 1,
     duracao: "5 repetições de 10 seg",
     musculo: "Flexores profundos do pescoço",
-    video: "",
+    video: "assets/videos/recolhimento-queixo-parede.mp4",
     icone: "🧍‍♀️", tempo: 60, // tempo = segundos no treino guiado
     objetivo: "Treinar a posição neutra da cabeça e corrigir a 'cabeça para frente' que acentua a papada.",
     erros: "Inclinar a cabeça para baixo em vez de recolher para trás; afastar a cabeça da parede.",
