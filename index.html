@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Xô Papada — Área de Membros</title>
+
+  <!-- PWA / instalar como aplicativo -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#C2185B" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Xô Papada" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png" />
+  <link rel="icon" type="image/png" href="assets/icons/icon-192.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Menu lateral (computador) -->
+  <aside class="sidebar">
+    <a href="#/" class="sidebar__logo"><img src="assets/logo.webp" alt="Xô Papada" /></a>
+    <nav class="sidebar__nav">
+      <a href="#/" data-nav="inicio"><span>🏠</span>Início</a>
+      <a href="#/protocolo" data-nav="protocolo"><span>📅</span>Meu Plano de 15 Dias</a>
+      <a href="#/exercicios" data-nav="exercicios"><span>💪</span>Biblioteca de Exercícios</a>
+      <a href="#/rotina" data-nav="rotina"><span>✅</span>Rotina de Hábitos</a>
+      <a href="#/progresso" data-nav="progresso"><span>📊</span>Meu Progresso</a>
+      <a href="#/bonus" data-nav="bonus"><span>🎁</span>Meus Bônus</a>
+    </nav>
+    <button class="sidebar__settings" data-action="settings">
+      <span class="sidebar__gear">⚙️</span>
+      <span><strong>Configurações</strong><small>Preferências e rotina</small></span>
+    </button>
+  </aside>
+
+  <div class="shell">
+    <!-- Topo (celular) -->
+    <header class="topbar">
+      <a href="#/" class="topbar__logo"><img src="assets/logo.webp" alt="Xô Papada" /></a>
+      <button class="icon-btn" data-action="settings" aria-label="Configurações">⚙️</button>
+    </header>
+
+    <main id="app" class="container"></main>
+  </div>
+
+  <!-- Menu inferior (celular) -->
+  <nav class="tabbar">
+    <a href="#/" data-nav="inicio"><span>🏠</span>Início</a>
+    <a href="#/protocolo" data-nav="protocolo"><span>📅</span>Plano</a>
+    <a href="#/exercicios" data-nav="exercicios"><span>💪</span>Exercícios</a>
+    <a href="#/progresso" data-nav="progresso"><span>📊</span>Progresso</a>
+    <a href="#/bonus" data-nav="bonus"><span>🎁</span>Bônus</a>
+  </nav>
+
+  <!-- Banner de instalação -->
+  <div id="install-banner" class="install-banner" hidden>
+    <div class="install-banner__icon">📲</div>
+    <div class="install-banner__body">
+      <strong>Tenha o Xô Papada sempre à mão</strong>
+      <p>Instale na tela inicial do celular e abra seu treino com um toque.</p>
+      <div class="row" style="margin-top:8px">
+        <button class="btn btn--sm" data-action="install">Instalar app</button>
+        <button class="link-btn" data-action="dismiss-banner">Agora não</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal" hidden><div class="modal__box" role="dialog" aria-modal="true"></div></div>
+  <div id="toast" class="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
