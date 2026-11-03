@@ -102,7 +102,7 @@ h3 { font-size: 17px; font-weight: 800; }
 .dia--done { border-color: var(--ok); background: var(--ok-bg); }
 .dia--done .dia__num { color: var(--ok); }
 .dia--atual { border-color: var(--pink); box-shadow: 0 0 0 4px var(--pink-light); }
-.dia--locked { opacity: .5; pointer-events: none; }
+.dia--locked { opacity: .5; }
 
 /* ---------- Lista de exercícios ---------- */
 .ex-list { display: grid; gap: 12px; }
@@ -569,7 +569,7 @@ h1, h2, h3 { color: var(--ink); }
 .dia__num { font-size: 34px; font-weight: 900; color: #fff; line-height: 1.05; }
 .dia__titulo { font-weight: 700; font-size: 14px; margin-top: 4px; color: var(--ink); }
 .dia__min { font-size: 12px; color: var(--muted); margin-top: auto; }
-.dia--locked { opacity: .78; pointer-events: none; }
+.dia--locked { opacity: .78; cursor: pointer; }
 .dia--atual {
   background: linear-gradient(150deg, #E0267E 0%, #A3155E 100%); border-color: rgba(255,140,190,.7);
   box-shadow: var(--glow);

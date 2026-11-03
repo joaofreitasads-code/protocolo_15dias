@@ -5,7 +5,7 @@
 
 /* Libera os dias em sequência (dia N só abre após concluir N-1).
    Coloque true para liberar todos de uma vez. */
-const LIBERAR_TODOS_OS_DIAS = false;
+const LIBERAR_TODOS_OS_DIAS = true;
 const NIVEIS = { 1: "● Iniciante", 2: "●● Intermediário", 3: "●●● Avançado" };
 const HUMORES = [
   { v: 1, e: "😣", t: "Difícil" }, { v: 2, e: "😐", t: "Ok" },
@@ -315,10 +315,14 @@ function telaDia(n) {
   const d = getDia(n);
   if (!d) return telaNaoEncontrada();
   if (!diaLiberado(n)) {
+    const libera = diaAtual();
     return `<a class="back" href="#/protocolo">← Voltar</a>
-      <div class="card celebrate"><div>🔒</div><h2>Dia ${n} bloqueado</h2>
-      <p class="muted">Conclua o dia ${n - 1} para liberar este treino.</p>
-      <a class="btn" style="margin-top:16px" href="#/dia/${n - 1}">Ir para o dia ${n - 1}</a></div>`;
+      <div class="card celebrate">
+        <div>🔒</div>
+        <h2>Dia ${n} ainda está trancado</h2>
+        <p class="muted">Os dias abrem um de cada vez. Conclua o <strong>dia ${libera}</strong> para avançar no protocolo.</p>
+        <button class="btn" style="margin-top:16px" data-guiado="${libera}">${ic("play")} Fazer o treino do dia ${libera}</button>
+      </div>`;
   }
   const fase = faseDoDia(n);
   const lista = exerciciosDoDia(n);
