@@ -716,13 +716,8 @@ const ehIOS = () => /iPhone|iPad|iPod/i.test(navigator.userAgent);
 window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); promptInstalacao = e; atualizarBanner(); });
 window.addEventListener("appinstalled", () => { state.bannerFechado = true; salvar(); atualizarBanner(); toast("✅ App instalado!"); });
 
-/* Banner aparece só na tela inicial, depois do primeiro acesso */
-function atualizarBanner() {
-  const naHome = !rota().parts.length;
-  const mostrar = !!state.nome && passoOnboard !== 2 && naHome && !state.bannerFechado && !ehStandalone();
-  document.getElementById("install-banner").hidden = !mostrar;
-  document.body.classList.toggle("has-banner", mostrar);
-}
+/* Banner de instalação removido: a instalação fica disponível nas Configurações */
+function atualizarBanner() {}
 
 async function instalar() {
   if (promptInstalacao) {
@@ -811,7 +806,6 @@ document.addEventListener("click", (ev) => {
     case "video-expert": modalVideoExpert(); break;
     case "settings": if (state.nome) modalConfig(); break;
     case "install": instalar(); break;
-    case "dismiss-banner": state.bannerFechado = true; salvar(); atualizarBanner(); break;
     case "finish-onboard":
       state.tempo = escolhaTempo(); salvar(); passoOnboard = 0; location.hash = "#/"; render();
       toast(`Bem-vinda, ${state.nome}! 💖`); break;
