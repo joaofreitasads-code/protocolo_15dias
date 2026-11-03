@@ -395,7 +395,7 @@ const EXERCICIOS = {
     categoria: "Drenagem", nivel: 1,
     duracao: "3 minutos",
     musculo: "Rosto e pescoço",
-    video: "",
+    video: "assets/videos/automassagem-drenante.mp4",
     icone: "💆‍♀️", tempo: 180, // tempo = segundos no treino guiado
     objetivo: "Reduzir o inchaço do rosto e do pescoço e fechar o treino com relaxamento.",
     erros: "Fazer muita força; massagear no sentido contrário (para cima no pescoço).",
