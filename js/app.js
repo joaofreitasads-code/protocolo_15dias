@@ -121,6 +121,8 @@ function videoEmbed(url) {
   return `<div class="video"><iframe src="${esc(src)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
 }
 
+const ic = (nome, cls = "ic") => `<svg class="${cls}" aria-hidden="true"><use href="#i-${nome}"/></svg>`;
+
 const fotoExpert = (cls) => CONFIG.expert.foto
   ? `<img class="${cls}" src="${esc(CONFIG.expert.foto)}" alt="${esc(CONFIG.expert.nome)}" />`
   : `<div class="${cls} ${cls}--vazia">👩</div>`;
@@ -159,7 +161,7 @@ let passoOnboard = 1;
 function telaOnboarding() {
   if (passoOnboard === 1) return `
   <div class="onboard card">
-    <img src="assets/logo.webp" alt="Xô Papada" />
+    <img src="assets/logo-escura.webp" alt="Xô Papada" />
     <div class="onboard__expert">
       ${fotoExpert("onboard__foto")}
       <div><strong>Com ${esc(CONFIG.expert.nome)}</strong><span>${esc(CONFIG.expert.titulo)}</span></div>
@@ -204,18 +206,51 @@ function telaInicio() {
   const terminou = feitos === DIAS.length;
   const habHoje = (state.habitos[hoje()] || []).length;
   const seq = sequencia();
+  const textoBotao = terminou ? "Treinar novamente" : feitosDoDia(atual.dia).length ? "Continuar treino guiado" : "Começar treino guiado";
 
   return `
   <section class="hero">
-    <p class="eyebrow" style="color:#fff;opacity:.85">Olá, ${esc(state.nome)} 👋</p>
-    <h1>${terminou ? "Você concluiu o protocolo! 🏆" : `Dia ${atual.dia} de ${DIAS.length}`}</h1>
-    <p>${terminou ? "Continue 3x por semana para manter os resultados." : `Fase ${fase.id} · ${esc(fase.nome)} · ${esc(atual.titulo)} · ⏱️ ~${minutosDoDia(atual.dia)} min`}</p>
-    <div class="hero__stats"><span>${feitos} de ${DIAS.length} dias${seq > 1 ? ` · 🔥 ${seq} dias seguidos` : ""}</span><span>${pct}%</span></div>
-    ${barra(pct)}
-    <div class="row" style="margin-top:18px">
-      <button class="btn btn--light" data-guiado="${atual.dia}">▶ ${terminou ? "Treinar novamente" : feitosDoDia(atual.dia).length ? "Continuar treino guiado" : "Começar treino guiado"}</button>
-      <a class="hero__link" href="#/dia/${atual.dia}">Ver exercícios do dia</a>
+    <img class="hero__arte" src="assets/rosto-traco.webp" alt="" aria-hidden="true" />
+    <div class="hero__body">
+      <p class="hero__ola">Olá, ${esc(state.nome)} 👋</p>
+      <h1>${terminou ? "Protocolo concluído! 🏆" : `Dia ${atual.dia} de ${DIAS.length}`}</h1>
+      <p class="hero__meta">${terminou ? "Continue 3x por semana para manter os resultados." : `Fase ${fase.id} · ${esc(fase.nome)} · ${esc(atual.titulo)} · ~${minutosDoDia(atual.dia)} min`}</p>
+      <div class="hero__prog">
+        <div class="progress"><div class="progress__bar" style="width:${Math.max(pct, 2)}%"></div></div>
+        <strong>${pct}%</strong>
+      </div>
+      ${seq > 1 ? `<p class="hero__seq">🔥 ${seq} dias seguidos</p>` : ""}
+      <div class="hero__acoes">
+        <button class="btn" data-guiado="${atual.dia}">${ic("play")} ${textoBotao}</button>
+        <a class="hero__link" href="#/dia/${atual.dia}">Ver exercícios do dia</a>
+      </div>
     </div>
+  </section>
+
+  <nav class="destaques" aria-label="Atalhos">
+    <a href="#/protocolo">${ic("calendar", "destaque__ic")}<span>15 Dias<br>de protocolo</span></a>
+    <a href="#/exercicios">${ic("dumbbell", "destaque__ic")}<span>Exercícios<br>diários</span></a>
+    <a href="#/rotina">${ic("leaf", "destaque__ic")}<span>Rotina de<br>hábitos</span></a>
+    <a href="#/progresso">${ic("chart", "destaque__ic")}<span>Acompanhe<br>evolução</span></a>
+    <a href="#/bonus">${ic("diamond", "destaque__ic")}<span>Bônus<br>exclusivos</span></a>
+  </nav>
+
+  <section class="section expert-card">
+    <div class="expert-card__midia">
+      ${fotoExpert("expert-card__foto")}
+      ${CONFIG.expert.videoBoasVindas ? `<button class="expert-card__play" data-action="video-expert" aria-label="Assistir vídeo de boas-vindas">${ic("play")}</button>` : ""}
+    </div>
+    <div class="expert-card__info">
+      <p class="expert-card__label">Sua especialista</p>
+      <h2>${esc(CONFIG.expert.nome)}</h2>
+      <span class="chip chip--forte">${esc(CONFIG.expert.titulo)}</span>
+      <p class="expert-card__frase">“${esc(CONFIG.expert.frase || CONFIG.expert.boasVindas)}”</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Seu protocolo completo</h2>
+    ${gridDias()}
   </section>
 
   <section class="section grid-2">
@@ -228,26 +263,15 @@ function telaInicio() {
       <p><strong>${habHoje} de ${ROTINA.length} hábitos</strong> concluídos</p>
       ${barra(Math.round((habHoje / ROTINA.length) * 100), true)}
     </a>
-  </section>
-
-  <section class="section expert-card">
-    ${fotoExpert("expert-card__foto")}
-    <div class="expert-card__id">
-      <p class="eyebrow">Sua especialista</p>
-      <h2>${esc(CONFIG.expert.nome)}</h2>
-      <span class="chip">${esc(CONFIG.expert.titulo)}</span>
-    </div>
-    <div class="expert-card__msg">
-      <p>“${esc(CONFIG.expert.boasVindas)}”</p>
-      <p class="expert-card__ass">${esc(CONFIG.expert.nome.split(" ")[0])} 💖</p>
-      ${CONFIG.expert.videoBoasVindas ? videoEmbed(CONFIG.expert.videoBoasVindas) : ""}
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Seu protocolo</h2>
-    ${gridDias()}
   </section>`;
+}
+
+function modalVideoExpert() {
+  abrirModal(`
+    <div class="gd__head"><div><p class="eyebrow">Boas-vindas</p><h2 style="margin:0">${esc(CONFIG.expert.nome)}</h2></div>
+      <button class="icon-btn" data-action="close" aria-label="Fechar">✕</button></div>
+    <div style="margin-top:14px">${videoEmbed(CONFIG.expert.videoBoasVindas)}</div>
+    <p class="muted" style="margin-top:14px">${esc(CONFIG.expert.boasVindas)}</p>`, "modal__box--lg");
 }
 
 function gridDias() {
@@ -255,20 +279,22 @@ function gridDias() {
   return FASES.map((f) => `
     <div class="fase">
       <div class="fase__head">
-        <span class="fase__tag" style="background:${f.cor}">Fase ${f.id} · ${esc(f.nome)}</span>
+        <span class="fase__tag">Fase ${f.id} · ${esc(f.nome)}</span>
         <span class="muted">${esc(f.descricao)}</span>
       </div>
       <div class="dias">
         ${DIAS.filter((d) => d.dia >= f.dias[0] && d.dia <= f.dias[1]).map((d) => {
           const done = diaCompleto(d.dia);
           const lib = diaLiberado(d.dia);
-          const cls = done ? "dia--done" : !lib ? "dia--locked" : d.dia === atual ? "dia--atual" : "";
+          const eAtual = d.dia === atual && !done;
+          const cls = done ? "dia--done" : !lib ? "dia--locked" : eAtual ? "dia--atual" : "";
+          const status = done ? ic("check") : !lib ? ic("lock") : eAtual ? ic("play") : "";
           return `
-          <a class="dia ${cls}" href="#/dia/${d.dia}">
-            <span class="dia__status">${done ? "✅" : !lib ? "🔒" : d.dia === atual ? "⭐" : ""}</span>
-            <span class="dia__num"><small>Dia</small>${String(d.dia).padStart(2, "0")}</span>
+          <a class="dia ${cls}" href="#/dia/${d.dia}" ${!lib ? 'aria-disabled="true"' : ""}>
+            <span class="dia__topo"><small>Dia</small><span class="dia__status">${status}</span></span>
+            <span class="dia__num">${String(d.dia).padStart(2, "0")}</span>
             <span class="dia__titulo">${esc(d.titulo)}</span>
-            <span class="muted" style="font-size:12px">${exerciciosDoDia(d.dia).length} exercícios · ~${minutosDoDia(d.dia)} min</span>
+            <span class="dia__min">≈ ${minutosDoDia(d.dia)} min</span>
           </a>`;
         }).join("")}
       </div>
@@ -778,6 +804,7 @@ document.addEventListener("click", (ev) => {
   const escolhaTempo = () => +(document.querySelector(".tempo-opcoes")?.dataset.escolha || state.tempo);
   switch (el.dataset.action) {
     case "close": fecharModal(); break;
+    case "video-expert": modalVideoExpert(); break;
     case "settings": if (state.nome) modalConfig(); break;
     case "install": instalar(); break;
     case "dismiss-banner": state.bannerFechado = true; salvar(); atualizarBanner(); break;

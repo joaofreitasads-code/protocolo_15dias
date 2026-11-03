@@ -17,7 +17,9 @@ const CONFIG = {
     foto: "assets/expert.jpg",
     boasVindas:
       "Que alegria ter você aqui! Eu vou te acompanhar nos próximos 15 dias. Vamos trabalhar juntas a musculatura do rosto e do pescoço com exercícios simples, rápidos e feitos em casa. Reserve alguns minutos por dia, siga o treino guiado e marque cada exercício concluído. A constância é o que traz resultado.",
-    videoBoasVindas: "", // link do vídeo de boas-vindas (YouTube/Vimeo)
+    // frase curta que aparece no cartão da especialista, na tela inicial
+    frase: "Siga o protocolo, pratique os exercícios e perceba, dia após dia, mais firmeza, definição e leveza no seu rosto.",
+    videoBoasVindas: "", // vídeo de boas-vindas: link do YouTube/Vimeo ou assets/videos/boas-vindas.mp4
   },
   suporte: {
     whatsapp: "5500000000000", // só números, com DDI

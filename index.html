@@ -7,10 +7,10 @@
 
   <!-- PWA / instalar como aplicativo -->
   <link rel="manifest" href="manifest.webmanifest" />
-  <meta name="theme-color" content="#C2185B" />
+  <meta name="theme-color" content="#1C0614" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Xô Papada" />
   <link rel="apple-touch-icon" href="assets/icons/icon-180.png" />
   <link rel="icon" type="image/png" href="assets/icons/icon-192.png" />
@@ -21,28 +21,42 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Ícones (traço) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 10.5 12 3.5l8.5 7V20a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4.2"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 20c0-8.5 5.5-15 15-15 0 9.5-6 15-14.5 15"/><path d="M5 20c3.2-4.3 6.5-7 10.5-9"/></symbol>
+      <symbol id="i-check-square" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><path d="m8 12.3 3 3 5.2-5.8"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20.5h16.5"/><path d="M6.5 17v-4.5M11 17V9M15.5 17v-6M20 17V5.5"/></symbol>
+      <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="4.5" rx="1"/><path d="M5 12.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7.5M12 8v13"/><path d="M12 8C10.6 5 6.5 4 6.5 6.3S10 8 12 8zm0 0c1.4-3 5.5-4 5.5-1.7S14 8 12 8z"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.9 1.9M16.6 16.6l1.9 1.9M5.5 18.5l1.9-1.9M16.6 7.4l1.9-1.9"/></symbol>
+      <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></symbol>
+      <symbol id="i-diamond" viewBox="0 0 24 24"><path d="M6.5 4h11L21 9l-9 11.5L3 9z"/><path d="M3 9h18M9.5 4 8 9l4 11.5L16 9l-1.5-5"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8.5 5.8v12.4a.8.8 0 0 0 1.2.7l9.6-6.2a.8.8 0 0 0 0-1.4L9.7 5.1a.8.8 0 0 0-1.2.7z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    </defs>
+  </svg>
   <!-- Menu lateral (computador) -->
   <aside class="sidebar">
-    <a href="#/" class="sidebar__logo"><img src="assets/logo.webp" alt="Xô Papada" /></a>
+    <a href="#/" class="sidebar__logo"><img src="assets/logo-escura.webp" alt="Xô Papada" /></a>
     <nav class="sidebar__nav">
-      <a href="#/" data-nav="inicio"><span>🏠</span>Início</a>
-      <a href="#/protocolo" data-nav="protocolo"><span>📅</span>Meu Plano de 15 Dias</a>
-      <a href="#/exercicios" data-nav="exercicios"><span>💪</span>Biblioteca de Exercícios</a>
-      <a href="#/rotina" data-nav="rotina"><span>✅</span>Rotina de Hábitos</a>
-      <a href="#/progresso" data-nav="progresso"><span>📊</span>Meu Progresso</a>
-      <a href="#/bonus" data-nav="bonus"><span>🎁</span>Meus Bônus</a>
+      <a href="#/" data-nav="inicio"><svg class="ic"><use href="#i-home"/></svg>Início</a>
+      <a href="#/protocolo" data-nav="protocolo"><svg class="ic"><use href="#i-calendar"/></svg>Meu Plano de 15 Dias</a>
+      <a href="#/exercicios" data-nav="exercicios"><svg class="ic"><use href="#i-leaf"/></svg>Exercícios Guiados</a>
+      <a href="#/rotina" data-nav="rotina"><svg class="ic"><use href="#i-check-square"/></svg>Rotina de Hábitos</a>
+      <a href="#/progresso" data-nav="progresso"><svg class="ic"><use href="#i-chart"/></svg>Meu Progresso</a>
+      <a href="#/bonus" data-nav="bonus"><svg class="ic"><use href="#i-gift"/></svg>Meus Bônus</a>
     </nav>
-    <button class="sidebar__settings" data-action="settings">
-      <span class="sidebar__gear">⚙️</span>
-      <span><strong>Configurações</strong><small>Preferências e rotina</small></span>
-    </button>
+    <button class="sidebar__settings" data-action="settings"><svg class="ic"><use href="#i-settings"/></svg>Configurações</button>
   </aside>
 
   <div class="shell">
     <!-- Topo (celular) -->
     <header class="topbar">
-      <a href="#/" class="topbar__logo"><img src="assets/logo.webp" alt="Xô Papada" /></a>
-      <button class="icon-btn" data-action="settings" aria-label="Configurações">⚙️</button>
+      <a href="#/" class="topbar__logo"><img src="assets/logo-escura.webp" alt="Xô Papada" /></a>
+      <button class="icon-btn" data-action="settings" aria-label="Configurações"><svg class="ic"><use href="#i-settings"/></svg></button>
     </header>
 
     <main id="app" class="container"></main>
@@ -50,11 +64,11 @@
 
   <!-- Menu inferior (celular) -->
   <nav class="tabbar">
-    <a href="#/" data-nav="inicio"><span>🏠</span>Início</a>
-    <a href="#/protocolo" data-nav="protocolo"><span>📅</span>Plano</a>
-    <a href="#/exercicios" data-nav="exercicios"><span>💪</span>Exercícios</a>
-    <a href="#/progresso" data-nav="progresso"><span>📊</span>Progresso</a>
-    <a href="#/bonus" data-nav="bonus"><span>🎁</span>Bônus</a>
+    <a href="#/" data-nav="inicio"><svg class="ic"><use href="#i-home"/></svg>Início</a>
+    <a href="#/protocolo" data-nav="protocolo"><svg class="ic"><use href="#i-calendar"/></svg>Plano</a>
+    <a href="#/exercicios" data-nav="exercicios"><svg class="ic"><use href="#i-leaf"/></svg>Exercícios</a>
+    <a href="#/progresso" data-nav="progresso"><svg class="ic"><use href="#i-chart"/></svg>Progresso</a>
+    <a href="#/bonus" data-nav="bonus"><svg class="ic"><use href="#i-gift"/></svg>Bônus</a>
   </nav>
 
   <!-- Banner de instalação -->
