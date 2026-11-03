@@ -703,8 +703,7 @@ function modalConfig() {
     ${opcoesTempo()}
     <button class="btn btn--block" style="margin-top:16px" data-action="save-settings">Salvar</button>
     <hr class="hr" />
-    <button class="btn btn--ghost btn--block" data-action="install">📲 Instalar como aplicativo</button>
-    <button class="link-btn danger" style="margin:16px auto 0;display:block" data-action="reset">Recomeçar protocolo do zero</button>`);
+    <button class="link-btn danger" style="margin:0 auto;display:block" data-action="reset">Recomeçar protocolo do zero</button>`);
 }
 
 /* ---------- Instalação (PWA) ---------- */
