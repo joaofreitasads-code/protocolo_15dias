@@ -182,7 +182,7 @@ const EXERCICIOS = {
     categoria: "Tonificação", nivel: 1,
     duracao: "3 séries de 10 (segurar 5 seg)",
     musculo: "Platisma e região abaixo do queixo",
-    video: "",
+    video: "assets/videos/beijo-no-teto.mp4",
     icone: "💋", tempo: 60, // tempo = segundos no treino guiado
     objetivo: "Alongar e tonificar a frente do pescoço (platisma).",
     erros: "Forçar a nuca; levar a cabeça para trás com tranco.",
