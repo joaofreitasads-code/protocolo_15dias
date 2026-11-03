@@ -517,14 +517,6 @@ function telaBonus() {
         ${acao}
       </div>`;
     }).join("")}
-  </div>
-  <div class="section card stack">
-    <h2>Precisa de ajuda?</h2>
-    <p class="muted">Fale com o nosso suporte.</p>
-    <div class="row">
-      <a class="btn" href="https://wa.me/${esc(CONFIG.suporte.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn--ghost" href="mailto:${esc(CONFIG.suporte.email)}">E-mail</a>
-    </div>
   </div>`;
 }
 
