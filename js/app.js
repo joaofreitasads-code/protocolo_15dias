@@ -336,10 +336,10 @@ function telaDia(n) {
   <h1>Dia ${n} · ${esc(d.titulo)}</h1>
   <p class="muted" style="margin:6px 0 14px">Foco: ${esc(d.foco)} · ⏱️ ~${minutosDoDia(n)} min</p>
   ${barra(pct, true)}
-  <p class="muted" style="font-size:13px;margin-top:6px">${feitos.length} de ${lista.length} exercícios</p>
+  <p class="muted" style="font-size:15px;margin-top:6px">${feitos.length} de ${lista.length} exercícios</p>
 
   <button class="btn btn--block section" data-guiado="${n}">▶ ${done ? "Refazer treino guiado" : feitos.length ? "Continuar treino guiado" : "Iniciar treino guiado"}</button>
-  <p class="muted" style="text-align:center;font-size:13px;margin-top:8px">ou marque cada exercício abaixo, no seu ritmo</p>
+  <p class="muted" style="text-align:center;font-size:15px;margin-top:8px">ou marque cada exercício abaixo, no seu ritmo</p>
 
   <div class="ex-list section">
     ${lista.map((id) => {
@@ -396,7 +396,7 @@ function telaExercicio(id, dia) {
   const ok = noDia && feitosDoDia(dia).includes(id);
   return `
   <a class="back" href="${noDia ? `#/dia/${dia}` : "#/exercicios"}">← Voltar</a>
-  <div class="row"><span class="chip">${esc(e.categoria)}</span><span class="muted" style="font-size:12px">${NIVEIS[e.nivel] || ""}</span></div>
+  <div class="row"><span class="chip">${esc(e.categoria)}</span><span class="muted" style="font-size:14px">${NIVEIS[e.nivel] || ""}</span></div>
   <h1 style="margin-top:8px">${e.icone || ""} ${esc(e.nome)}</h1>
   <p class="muted" style="margin-bottom:16px">⏱️ ${esc(e.duracao)} · ${esc(e.musculo)}</p>
 
@@ -598,7 +598,7 @@ function renderGuiado() {
           ? `<video class="gd__video" src="${esc(e.video)}" poster="${esc(posterDe(e.video))}" autoplay muted loop playsinline></video>`
           : `<div class="gd__ic">${e.icone || "💪"}</div>`}
         <h3>${esc(e.nome)}</h3>
-        <p class="muted" style="font-size:14px">${esc(e.duracao)}</p>
+        <p class="muted" style="font-size:15px">${esc(e.duracao)}</p>
         <div class="ring">
           <svg viewBox="0 0 144 144"><circle cx="72" cy="72" r="${RAIO}" class="ring__bg"/><circle cx="72" cy="72" r="${RAIO}" class="ring__fg" id="ring-fg" stroke-dasharray="${CIRC}" stroke-dashoffset="0"/></svg>
           <div class="ring__txt"><span id="gd-time">${fmtSeg(guiado.rest)}</span><small>tempo</small></div>
@@ -734,7 +734,7 @@ function modalInstalar(plat) {
     android: ["Abra este link no <strong>Google Chrome</strong>.", "Toque nos <strong>três pontinhos ⋮</strong> no canto superior direito.", "Toque em <strong>“Instalar app”</strong> ou <strong>“Adicionar à tela inicial”</strong>."],
   };
   abrirModal(`
-    <div class="gd__head"><div><h2 style="margin:0">📲 Instalar o aplicativo</h2><p class="muted" style="font-size:13px">Em 3 toques rápidos</p></div>
+    <div class="gd__head"><div><h2 style="margin:0">📲 Instalar o aplicativo</h2><p class="muted" style="font-size:15px">Em 3 toques rápidos</p></div>
       <button class="icon-btn" data-action="close">✕</button></div>
     ${ehNavegadorInterno() ? `<div class="alerta" style="margin-top:12px"><span>⚠️</span><p><strong>Você está no navegador do Instagram/WhatsApp.</strong> Toque nos 3 pontinhos e escolha “Abrir no navegador” (Safari ou Chrome) antes de instalar.</p></div>` : ""}
     <div class="seg" style="margin:16px 0">
